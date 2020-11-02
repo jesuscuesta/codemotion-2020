@@ -15,7 +15,7 @@
       "prefix": "codemotion",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/codemotion-micro",
             "index": "src/index.html",
@@ -64,7 +64,7 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
             "browserTarget": "codemotion-micro:build"
           },
@@ -81,7 +81,7 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "ngx-build-plus:karma",
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
@@ -365,6 +365,289 @@
           }
         }
       }
-    }},
+    },
+    "anime": {
+      "projectType": "library",
+      "root": "projects/anime",
+      "sourceRoot": "projects/anime/src",
+      "prefix": "anime",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/anime/tsconfig.lib.json",
+            "project": "projects/anime/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/anime/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/anime/src/test.ts",
+            "tsConfig": "projects/anime/tsconfig.spec.json",
+            "karmaConfig": "projects/anime/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/anime/tsconfig.lib.json",
+              "projects/anime/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "disney": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/disney",
+      "sourceRoot": "projects/disney/src",
+      "prefix": "disney",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/disney",
+            "index": "projects/disney/src/index.html",
+            "main": "projects/disney/src/main.ts",
+            "polyfills": "projects/disney/src/polyfills.ts",
+            "tsConfig": "projects/disney/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/disney/src/favicon.ico",
+              "projects/disney/src/assets"
+            ],
+            "styles": [
+              "projects/disney/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/disney/src/environments/environment.ts",
+                  "with": "projects/disney/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "disney:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "disney:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "disney:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/disney/src/test.ts",
+            "polyfills": "projects/disney/src/polyfills.ts",
+            "tsConfig": "projects/disney/tsconfig.spec.json",
+            "karmaConfig": "projects/disney/karma.conf.js",
+            "assets": [
+              "projects/disney/src/favicon.ico",
+              "projects/disney/src/assets"
+            ],
+            "styles": [
+              "projects/disney/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/disney/tsconfig.app.json",
+              "projects/disney/tsconfig.spec.json",
+              "projects/disney/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/disney/e2e/protractor.conf.js",
+            "devServerTarget": "disney:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "disney:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "doctor-strange": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/doctor-strange",
+      "sourceRoot": "projects/doctor-strange/src",
+      "prefix": "strange",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/doctor-strange",
+            "index": "projects/doctor-strange/src/index.html",
+            "main": "projects/doctor-strange/src/main.ts",
+            "polyfills": "projects/doctor-strange/src/polyfills.ts",
+            "tsConfig": "projects/doctor-strange/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/doctor-strange/src/favicon.ico",
+              "projects/doctor-strange/src/assets"
+            ],
+            "styles": [
+              "projects/doctor-strange/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/doctor-strange/src/environments/environment.ts",
+                  "with": "projects/doctor-strange/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "doctor-strange:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "doctor-strange:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "doctor-strange:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/doctor-strange/src/test.ts",
+            "polyfills": "projects/doctor-strange/src/polyfills.ts",
+            "tsConfig": "projects/doctor-strange/tsconfig.spec.json",
+            "karmaConfig": "projects/doctor-strange/karma.conf.js",
+            "assets": [
+              "projects/doctor-strange/src/favicon.ico",
+              "projects/doctor-strange/src/assets"
+            ],
+            "styles": [
+              "projects/doctor-strange/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/doctor-strange/tsconfig.app.json",
+              "projects/doctor-strange/tsconfig.spec.json",
+              "projects/doctor-strange/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/doctor-strange/e2e/protractor.conf.js",
+            "devServerTarget": "doctor-strange:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "doctor-strange:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "codemotion-micro"
 }

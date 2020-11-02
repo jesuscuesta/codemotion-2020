@@ -64,9 +64,6 @@
                                 <li class="link">
                                     <a href="modules/AppModule.html" >AppModule</a>
                                 </li>
-                                <li class="link">
-                                    <a href="modules/AppRoutingModule.html" >AppRoutingModule</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -156,9 +153,6 @@
                                        <li class="link">
                                            <a href="modules/AppModule.html" >AppModule</a>
                                        </li>
-                                       <li class="link">
-                                           <a href="modules/AppRoutingModule.html" >AppRoutingModule</a>
-                                       </li>
                                </ul>
                            </li>
                    
@@ -237,6 +231,46 @@
 </li>
 </ul>
 <p>-- Añadir comando compodoc</p>
+<h2 id="monorepo">Monorepo</h2>
+<h3 id="new-micro-project">new micro project</h3>
+<p>Generamos una nueva micro aplicación<br>ng generate application marvel --routing --prefix=marvel<br>ng generate application dc --routing --prefix=dc</p>
+<p>-- Analizamos estructura<br>--- projects<br>--- angular.json</p>
+<ul>
+<li>Qué pasa si ejecutamos ng serve</li>
+<li>¿Cómo ejecutamos una subaplicación?</li>
+<li>¿Podemos generarlas todas juntas?</li>
+<li>Como ejecutar una sola</li>
+</ul>
+<p>Levantamos la subaplicación:</p>
+<ul>
+<li>ng serve –-project marvel</li>
+<li>Añadimos en el html los enlaces</li>
+<li>Añadimos en el router las rutas</li>
+<li>-- comparativa con lazy loading y normal</li>
+<li>-- al poner lazy loading, da error, borrar browser module, poner CommonModule</li>
+<li><p>-- Cambiar en app-routing, forRoot por forChild, añadir ruta al componente</p>
+</li>
+<li><p>probar ejectuar el dist, con npx static-server</p>
+</li>
+<li><p>-- problemas si usan enlace normal y no routerlink</p>
+</li>
+<li><p>añadir ng library<br>ng generate library anime --prefix=anime<br>compilar con prod, si no quieres que aparezca un error de IVY<br>analizar las diferencias<br>problemas con lazyloading</p>
+</li>
+<li><p>añadir con angular elements disney<br>ng generate application disney --routing --prefix=disney</p>
+</li>
+<li><p>añadimos la dependencia de angular elements<br>ng add @angular/elements<br>añadimos el compilador: ng add ngx-build-plus<br>tener cuidado que coincidan las versiones</p>
+</li>
+<li><p>Dejar ejemplo más completo angular elements: <a href="https://github.com/jesuscuesta/angular-elements">https://github.com/jesuscuesta/angular-elements</a></p>
+</li>
+<li><p>ejemplo varios servidores<br>Generamos otra aplicacion<br>ng generate application doctor-strange --routing --prefix=strange<br>generamos un nuevo enlace<br>le añadimos al servidor, podemos ponerlo en un iframe, webcomponent, nueva pestaña, misma pestaña, etc...</p>
+</li>
+<li><p>explicar brevement NX<br>-- explicar sistema de plugins</p>
+</li>
+</ul>
+<p>Extras<br>Otras aplicaciones no angular en el mismo repositorio<br>Lerna: <a href="https://github.com/lerna/lerna">https://github.com/lerna/lerna</a> ==&gt; muchos proyectos mono repo<br>Webpack 5 =&gt; module federation</p>
+<p>Hablar del sistema de gobierno del repositorio</p>
+<p>==========================</p>
+<p>URLS<br><a href="https://angular.io/cli/generate#application-command">https://angular.io/cli/generate#application-command</a><br><a href="https://medium.com/disney-streaming/combining-multiple-angular-applications-into-a-single-one-e87d530d6527">https://medium.com/disney-streaming/combining-multiple-angular-applications-into-a-single-one-e87d530d6527</a><br><a href="https://www.angulararchitects.io/aktuelles/6-steps-to-your-angular-based-microfrontend-shell/">https://www.angulararchitects.io/aktuelles/6-steps-to-your-angular-based-microfrontend-shell/</a><br><a href="https://micro-frontends.org/">https://micro-frontends.org/</a><br><a href="https://www.youtube.com/watch?v=wxnwPLLIJCY">https://www.youtube.com/watch?v=wxnwPLLIJCY</a></p>
 
 
 

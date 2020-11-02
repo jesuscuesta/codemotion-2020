@@ -78,11 +78,45 @@ Levantamos la subaplicación:
 - probar ejectuar el dist, con npx static-server
 - -- problemas si usan enlace normal y no routerlink
 
-build las diferentes aplicaciones
+- añadir ng library
+ng generate library anime --prefix=anime
+compilar con prod, si no quieres que aparezca un error de IVY
+analizar las diferencias
+problemas con lazyloading
+
+- añadir con angular elements disney
+ng generate application disney --routing --prefix=disney
+- añadimos la dependencia de angular elements
+ng add @angular/elements
+añadimos el compilador: ng add ngx-build-plus
+tener cuidado que coincidan las versiones
+
+- Dejar ejemplo más completo angular elements: https://github.com/jesuscuesta/angular-elements
+
+- ejemplo varios servidores
+  Generamos otra aplicacion
+ng generate application doctor-strange --routing --prefix=strange
+generamos un nuevo enlace
+le añadimos al servidor, podemos ponerlo en un iframe, webcomponent, nueva pestaña, misma pestaña, etc...
+
+- explicar brevement NX
+-- explicar sistema de plugins
+
+Extras
+Otras aplicaciones no angular en el mismo repositorio
+Lerna: https://github.com/lerna/lerna ==> muchos proyectos mono repo
+Webpack 5 => module federation
+
+Hablar del sistema de gobierno del repositorio
+
 ==========================
+
+
 
 
 URLS
 https://angular.io/cli/generate#application-command
 https://medium.com/disney-streaming/combining-multiple-angular-applications-into-a-single-one-e87d530d6527
-
+https://www.angulararchitects.io/aktuelles/6-steps-to-your-angular-based-microfrontend-shell/
+https://micro-frontends.org/
+https://www.youtube.com/watch?v=wxnwPLLIJCY

@@ -64,9 +64,6 @@
                                 <li class="link">
                                     <a href="../modules/AppModule.html"  class="active" >AppModule</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -155,9 +152,6 @@
                    >
                                        <li class="link">
                                            <a href="../modules/AppModule.html"  class="active" >AppModule</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
                                        </li>
                                </ul>
                            </li>
@@ -249,14 +243,6 @@
                     </ul>
                 </div>
                 <div class="col-sm-3">
-                    <h3>Imports<a href="https://angular.io/docs/ts/latest/api/core/index/NgModule-interface.html#!#imports-anchor" target="_blank"><span class="fa fa-info-circle"></a></h3>
-                    <ul class="list-group">
-                            <li class="list-group-item">
-                                    <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
-                            </li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
                     <h3>Bootstrap<a href="https://angular.io/docs/ts/latest/api/core/index/NgModule-interface.html#!#bootstrap-anchor" target="_blank"><span class="fa fa-info-circle"></a></h3>
                     <ul class="list-group">
                             <li class="list-group-item">
@@ -273,6 +259,7 @@ import { NgModule } from &#x27;@angular/core&#x27;;
 
 import { AppRoutingModule } from &#x27;./app-routing.module&#x27;;
 import { AppComponent } from &#x27;./app.component&#x27;;
+import { AppModule as MarvelModule } from &#x27;../../projects/marvel/src/app/app.module&#x27;;
 
 @NgModule({
   declarations: [
@@ -280,7 +267,8 @@ import { AppComponent } from &#x27;./app.component&#x27;;
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MarvelModule
   ],
   providers: [],
   bootstrap: [AppComponent]
