@@ -43,3 +43,46 @@ ng new codemotion-micro
 
 - Ejecutar proyecto
 ng serve
+
+- Vaciar contenido app
+
+- Instarlar compodoc
+npm install --save-dev compodoc
+
+-- Añadir comando compodoc
+
+## Monorepo
+
+### new micro project
+Generamos una nueva micro aplicación
+ng generate application marvel --routing --prefix=marvel
+ng generate application dc --routing --prefix=dc
+
+-- Analizamos estructura
+--- projects
+--- angular.json
+
+  - Qué pasa si ejecutamos ng serve
+  - ¿Cómo ejecutamos una subaplicación?
+  - ¿Podemos generarlas todas juntas?
+  - Como ejecutar una sola
+
+Levantamos la subaplicación:
+- ng serve –-project marvel
+- Añadimos en el html los enlaces
+- Añadimos en el router las rutas
+- -- comparativa con lazy loading y normal
+- -- al poner lazy loading, da error, borrar browser module, poner CommonModule
+- -- Cambiar en app-routing, forRoot por forChild, añadir ruta al componente
+
+- probar ejectuar el dist, con npx static-server
+- -- problemas si usan enlace normal y no routerlink
+
+build las diferentes aplicaciones
+==========================
+
+
+URLS
+https://angular.io/cli/generate#application-command
+https://medium.com/disney-streaming/combining-multiple-angular-applications-into-a-single-one-e87d530d6527
+
