@@ -104,6 +104,12 @@ le añadimos al servidor, podemos ponerlo en un iframe, webcomponent, nueva pest
 
 Extras
 Otras aplicaciones no angular en el mismo repositorio
+ejemplo con svelte
+npx degit sveltejs/template deadpool
+cd deadpool
+npm install
+npm run dev
+
 Lerna: https://github.com/lerna/lerna ==> muchos proyectos mono repo
 Webpack 5 => module federation
 
@@ -111,8 +117,14 @@ Hablar del sistema de gobierno del repositorio
 
 ==========================
 
-
-
+- Multirepo
+  - Enlace externo
+  - Iframes => tab virtual
+  - como library: dependencia assets, dependencia package.json o npm
+  - como webcomponent
+  - como proyecto con .submodulo
+  - Module federation
+  - Configuración proxy
 
 URLS
 https://angular.io/cli/generate#application-command
