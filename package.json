@@ -31,6 +31,7 @@
     "@angular/platform-browser": "~10.2.0",
     "@angular/platform-browser-dynamic": "~10.2.0",
     "@angular/router": "~10.2.0",
+    "@anime/ejemplo": "git+https://github.com/jesuscuesta/codemotion-2020-ang-library.git",
     "document-register-element": "^1.7.2",
     "ngx-build-plus": "^10.1.1",
     "rxjs": "~6.6.0",

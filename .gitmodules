@@ -1,0 +1,3 @@
+[submodule "code-externa"]
+	path = code-externa
+	url = https://github.com/jesuscuesta/code-externa

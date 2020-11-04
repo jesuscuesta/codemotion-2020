@@ -37,6 +37,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   - Vuestro IDE Favorito => Nosotros usaremos Visual Studio Code
 
 - Creación del proyecto
+- crear vuestro proyecto gitub
 ng new codemotion-micro
 
 - Instalar dependencias: npm install
@@ -55,6 +56,7 @@ npm install --save-dev compodoc
 
 ### new micro project
 Generamos una nueva micro aplicación
+npx?
 ng generate application marvel --routing --prefix=marvel
 ng generate application dc --routing --prefix=dc
 
@@ -83,15 +85,18 @@ ng generate library anime --prefix=anime
 compilar con prod, si no quieres que aparezca un error de IVY
 analizar las diferencias
 problemas con lazyloading
+-- lo añadimos como componente routing
 
-- añadir con angular elements disney
-ng generate application disney --routing --prefix=disney
-- añadimos la dependencia de angular elements
-ng add @angular/elements
-añadimos el compilador: ng add ngx-build-plus
-tener cuidado que coincidan las versiones
+-- lo añadimos como dependencia en el package.json
+creamos nuevo github
+subimos el dist
+añadimos dependencia
+npm install --save https://github.com/jesuscuesta/codemotion-2020-ang-library
+también con usuario y password
+también se puede hacer por ssh
 
-- Dejar ejemplo más completo angular elements: https://github.com/jesuscuesta/angular-elements
+creamos una nueva sección: ng g module pages/anime-dev --route anime-dev --module app.module
+mostramos ejemplo con network
 
 - ejemplo varios servidores
   Generamos otra aplicacion
@@ -99,10 +104,6 @@ ng generate application doctor-strange --routing --prefix=strange
 generamos un nuevo enlace
 le añadimos al servidor, podemos ponerlo en un iframe, webcomponent, nueva pestaña, misma pestaña, etc...
 
-- explicar brevement NX
--- explicar sistema de plugins
-
-Extras
 Otras aplicaciones no angular en el mismo repositorio
 ejemplo con svelte
 npx degit sveltejs/template deadpool
@@ -110,21 +111,76 @@ cd deadpool
 npm install
 npm run dev
 
-Lerna: https://github.com/lerna/lerna ==> muchos proyectos mono repo
+Extras
+- explicar brevement NX
+  
+-- explicar sistema de plugins
+
 Webpack 5 => module federation
+
+Lerna: https://github.com/lerna/lerna ==> muchos proyectos mono repo
 
 Hablar del sistema de gobierno del repositorio
 
 ==========================
 
 - Multirepo
-  - Enlace externo
-  - Iframes => tab virtual
-  - como library: dependencia assets, dependencia package.json o npm
+- creamos otro repositorio
+- ng new nombre-proyecto --prefix=nombre-proyecto
+- ng build --prod
+- vamos a dist, npx static-server
+
+  - Iframes => tab virtual ==> crear modulo, y enlazar
+  - ng g module pages/iframes --route iframes --module app.module
+  - metemos el iframe, compilamos la otra aplicación y la cargamos
+  
+  - como library: dependencia assets, dependencia package.json o npm => crear modulo y enlazar
+-- creamos librería en el otro proyecto, build, y la enlazamos con el package.json, con hardcode, luego probamos subirla a github y la enlazamos
+explicar storybook, angular material
+explicar luego la publicación
+explicar ñapas, metiéndola en assets y cosas así
+
+- añadir con angular elements disney
+- ng new codemotion-elements
+
+- añadimos la dependencia de angular elements
+ng add @angular/elements
+añadimos el compilador: ng add ngx-build-plus
+tener cuidado que coincidan las versiones
+problema routing
+- añade el import en el main.ts
+- import 'zone.js/dist/zone';
+
+- Dejar ejemplo más completo angular elements: https://github.com/jesuscuesta/angular-elements
+- ++++ MIRAR LO DE ANGULAR ELEMETNS
+
+-con un CDN
+
   - como webcomponent
+igual que en el caso anterior
+
   - como proyecto con .submodulo
+  - crear repositorio a parte
+  - crear subaplicación: ng generate application code-externa --routing --prefix=code-externa
+  - git submodule add https://github.com/jesuscuesta/code-externa
+git clone https://github.com/jesuscuesta/code-externa
+Para recuperar los ficheros:
+git submodule init
+Para actualizarlos:
+git submodule update
+También podemos ahorrarnos las dos últimas líneas con --recursive:
+
+git clone --recursive https://github.com/GeekyTheory/GeekyBlogs.git
+
   - Module federation
   - Configuración proxy
+
+Más sobre webcomponents
+- angular elements
+- webcomponentjs
+- stenciljs
+- lit-element
+- Vaadin 
 
 URLS
 https://angular.io/cli/generate#application-command
